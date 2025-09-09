@@ -1,103 +1,148 @@
+"use client";
 import Image from "next/image";
+import { Parallax } from "react-parallax";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="bg-gradient-to-b from-[#B2EBF2] via-white min-h-screen w-full font-sans">
+      {/* Hero Section */}
+      <Parallax bgImage="/hero-bg.jpg" strength={600}>
+        <section className="flex flex-col items-center justify-center h-[80vh] text-center relative">
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-[#B2EBF2]/80 via-white/80 to-black/80 pointer-events-none"></div>
+          <h1 className="text-5xl sm:text-7xl font-extrabold text-[#00BFFF] drop-shadow-lg mb-6 animate-fade-in relative z-10">
+            Armando Fulbito
+          </h1>
+          <p className="text-xl sm:text-2xl text-black/80 font-medium mb-8 animate-fade-in delay-200 relative z-10">
+            La forma más fácil y divertida de organizar tus partidos de fútbol
+            amateur.
+          </p>
+          <a
+            href="#beneficios"
+            className="bg-[#00BFFF] text-white font-bold px-8 py-4 rounded-full shadow-lg hover:bg-[#009ACD] transition-all animate-bounce relative z-10"
+          >
+            ¡Sumate ahora!
+          </a>
+        </section>
+      </Parallax>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Beneficios */}
+      <section
+        id="beneficios"
+        className="max-w-7xl mx-auto py-20 px-4 flex flex-col md:flex-row items-center justify-center gap-10"
+      >
+        <div className="flex-1 flex flex-col items-center p-8 border-2 border-[#00BFFF] rounded-2xl bg-white/70 shadow-xl transition-transform hover:scale-105 hover:shadow-2xl animate-slide-up">
+          <Image
+            src="/icon-teams.png"
+            alt="Equipos"
+            width={80}
+            height={80}
+            className="mb-4"
+          />
+          <h2 className="text-2xl font-bold text-[#00BFFF] mb-2">
+            Gestioná tus equipos
+          </h2>
+          <p className="text-black/80 text-center">
+            Creá equipos, invitá amigos y llevá el control de tus partidos y
+            estadísticas.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <div className="flex-1 flex flex-col items-center p-8 border-2 border-[#00BFFF] rounded-2xl bg-white/70 shadow-xl transition-transform hover:scale-105 hover:shadow-2xl animate-slide-up delay-100">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/icon-calendar.png"
+            alt="Calendario"
+            width={80}
+            height={80}
+            className="mb-4"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          <h2 className="text-2xl font-bold text-[#00BFFF] mb-2">
+            Organizá partidos
+          </h2>
+          <p className="text-black/80 text-center">
+            Definí fecha, lugar y hora. Confirmá asistentes y armá los equipos
+            automáticamente.
+          </p>
+        </div>
+        <div className="flex-1 flex flex-col items-center p-8 border-2 border-[#00BFFF] rounded-2xl bg-white/70 shadow-xl transition-transform hover:scale-105 hover:shadow-2xl animate-slide-up delay-200">
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src="/icon-chat.png"
+            alt="Chat"
+            width={80}
+            height={80}
+            className="mb-4"
           />
-          Examples
-        </a>
+          <h2 className="text-2xl font-bold text-[#00BFFF] mb-2">
+            Comunidad y chat
+          </h2>
+          <p className="text-black/80 text-center">
+            Chateá con tus amigos, compartí resultados y viví el fulbito como
+            nunca.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section className="w-full py-16 bg-[#00BFFF] text-white text-center animate-fade-in">
+        <h2 className="text-3xl font-bold mb-4">¿Listo para jugar?</h2>
+        <p className="mb-8 text-lg">
+          Registrate gratis y empezá a organizar tus partidos hoy mismo.
+        </p>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/register"
+          className="bg-white text-[#00BFFF] font-bold px-8 py-4 rounded-full shadow-lg hover:bg-[#B2EBF2] transition-all"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
+          Crear cuenta
         </a>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full py-8 bg-black text-white text-center">
+        <p className="text-sm">
+          &copy; {new Date().getFullYear()} Armando Fulbito. Todos los derechos
+          reservados.
+        </p>
       </footer>
-    </div>
+
+      {/* Animaciones CSS */}
+      <style jsx>{`
+        .animate-fade-in {
+          animation: fadeIn 1s ease;
+        }
+        .animate-slide-up {
+          animation: slideUp 1s ease;
+        }
+        .animate-bounce {
+          animation: bounce 2s infinite;
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes bounce {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+      `}</style>
+    </main>
   );
 }
